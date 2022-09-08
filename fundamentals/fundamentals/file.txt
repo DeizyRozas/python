@@ -39,25 +39,25 @@
     - increment     x
     - break         x
     - continue      x
-    - sequence
+    - sequence      x
 - while loop
-    - start
-    - stop
-    - increment
+    - start         X
+    - stop          x
+    - increment     x
 - function
-    - parameter
-    - argument
+    - parameter     x
+    - argument      x
     - return
 
 * Bonus: Errors
 
-- NameError: name <variable name> is not defined
-- TypeError: 'tuple' object does not support item assignment
-- KeyError: 'favorite_team'
-- IndexError: list index out of range
-- IndentationError: unexpected indent
-- AttributeError: 'tuple' object has no attribute 'pop'
-- AttributeError: 'tuple' object has no attribute 'append'
+- NameError: name <variable name> is not defined                
+- TypeError: 'tuple' object does not support item assignment    x
+- KeyError: 'favorite_team'                                     x
+- IndexError: list index out of range                           x
+- IndentationError: unexpected indent                           x
+- AttributeError: 'tuple' object has no attribute 'pop'         x
+- AttributeError: 'tuple' object has no attribute 'append'      x
 - Tuples
     - change value
     - add value
