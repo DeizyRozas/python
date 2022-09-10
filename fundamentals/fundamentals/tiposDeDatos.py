@@ -62,15 +62,29 @@
 # # la salida sería [2,5];
 
 
-perro = ("Canis Familiaris", "perro", "carnívoro", 12)
-perro = perro + ("doméstico",)
-print(perro)
-# el resultado...
-#("Canis Familiaris", "Perro", "carnívoro", 12, "doméstico")
-perro = perro[:3] + ("el mejor amigo del hombre",) + perro[4:]
-print(perro)
+# perro = ("Canis Familiaris", "perro", "carnívoro", 12)
+# perro = perro + ("doméstico",)
+# print(perro)
+# # el resultado...
+# #("Canis Familiaris", "Perro", "carnívoro", 12, "doméstico")
+# perro = perro[:3] + ("el mejor amigo del hombre",) + perro[4:]
+# print(perro)
 # el resultado es...
 #("Canis Familiaris", "Perro", "carnívoro", "el mejor amigo del hombre", "doméstico")
+
+findesemana = {"Dom": "Domingo", "Sáb": "Sábado"} # notación literal
+capitales = {} # crea un diccionario vacío y luego agrega valores
+capitales["svk"] = "Bratislava"
+capitales["deu"] = "Berlin"
+capitales["dnk"] = "Copenhagen"
+
+print(capitales)
+
+print(findesemana["Dom"])
+print(capitales["svk"])
+value_removed = capitales.pop('svk') # eliminará la clave 'svk' y devolverá su valor
+del capitales['dnk'] # eliminará la clave y no devolverá nada
+
 
 
 
