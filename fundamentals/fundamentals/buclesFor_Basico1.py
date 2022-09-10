@@ -6,10 +6,10 @@ for a in range (151):
 for multiplosDe5 in range(5,1001,5):
     print(multiplosDe5)
 
-3.-Contar, a la manera del Dojo: imprime números enteros del 1 al 100. 
-Si es divisible por 5, imprime "Coding” en su lugar. 
-Si es divisible por 10, imprime "Coding Dojo". 
-for numerosEnteros1_100 in range(1,100):
+# 3.-Contar, a la manera del Dojo: imprime números enteros del 1 al 100. 
+# Si es divisible por 5, imprime "Coding” en su lugar. 
+# Si es divisible por 10, imprime "Coding Dojo". 
+# for numerosEnteros1_100 in range(1,100):
     if numerosEnteros1_100%5==0:
         print("Coding")
     
@@ -38,11 +38,11 @@ for cuentaRegresivaDeA4 in range (2018,0,-4):
 
 
 
-Contador flexible: establece tres variables: lowNum, highNum, mult. 
-Comenzando en lowNum y pasando por highNum,
- imprime solo los enteros que sean múltiplos de mult. 
-Por ejemplo, si lowNum=2, highNum=9 y mult=3. 
- El bucle debe imprimir 3, 6, 9 (en líneas sucesivas). 
+# Contador flexible: establece tres variables: lowNum, highNum, mult. 
+# Comenzando en lowNum y pasando por highNum,
+#  imprime solo los enteros que sean múltiplos de mult. 
+# Por ejemplo, si lowNum=2, highNum=9 y mult=3. 
+#  El bucle debe imprimir 3, 6, 9 (en líneas sucesivas). 
 
 lowNum=2
 highNum=9
