@@ -9,12 +9,13 @@ for multiplosDe5 in range(5,1001,5):
 # 3.-Contar, a la manera del Dojo: imprime números enteros del 1 al 100. 
 # Si es divisible por 5, imprime "Coding” en su lugar. 
 # Si es divisible por 10, imprime "Coding Dojo". 
-# for numerosEnteros1_100 in range(1,100):
-    if numerosEnteros1_100%5==0:
-        print("Coding")
-    
+
+for numerosEnteros1_100 in range(1,101):
     if numerosEnteros1_100%10==0:
-        print("coding Dojo")
+        print("Coding Dojo")
+    
+    elif numerosEnteros1_100%5==0:
+        print("coding")
 
     else: print(numerosEnteros1_100)
 
