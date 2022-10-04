@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amigos base de datos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Estos son mis amigos</h1>
+    <table class="table table-bordered border-info w-75 p-3 " >
+        <thead class="table-info">
+            <th >Nombre</th>
+            <th>Apellido</th>
+            <th>Ocupacion</th>
+            <th>Creado en</th>
+            <th>Actualizado en</th>
+        </thead>
+        <tbody>
+            {% for un_amigo in amigos %}
+            <tr>
+                <td>{{un_amigo.nombre}}</td>
+                <td>{{un_amigo.apellido}}</td>
+                <td>{{un_amigo.ocupacion}}</td>
+                <td>{{un_amigo.created_at}}</td>
+                <td>{{un_amigo.updated_at}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Agregar un Amigo</h1>
+<form action="/crear_amigo" method="POST">
+    <label for="vnombre">First Name:</label>
+    <input type="text" name="vnombre">
+    <label for="vapellido">Last Name:</label>
+    <input type="text" name="vapellido">
+    <label for="vocc" >Occupation:</label>
+    <input type="text" name="vocc">
+    <input type="submit" value="Add Friend">
+</form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+</body>
+</html>
