@@ -1,4 +1,6 @@
 from burgers_app.config.mysqlconnection import connectToMySQL
+from burgers_app.models import topping
+from flask import flash
 
 class Burger:
     def __init__(self,data):
@@ -9,10 +11,11 @@ class Burger:
         self.calories = data['calories']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
+        self.toppings = []
 
     @classmethod
     def save(cls,data):
-        query = "INSERT INTO burgers (name,bun,meat,calories,created_at,updated_at) VALUES (%(name)s,%(bun)s,%(meat)s,%(calories)s,NOW(),NOW())"
+        query = "INSERT INTO burgers (name,bun,meat,calories,user_id,created_at,updated_at) VALUES (%(name)s,%(bun)s,%(meat)s,%(calories)s,%(user_id)s,NOW(),NOW())"
         return connectToMySQL('login_reg').query_db(query,data)
 
     @classmethod
@@ -40,3 +43,43 @@ class Burger:
     def destroy(cls,data):
         query = "DELETE FROM burgers WHERE id = %(id)s;"
         return connectToMySQL('login_reg').query_db(query,data)
+
+    # este método recuperará la hamburguesa con todos los aderezos asociados a la hamburguesa
+    @classmethod
+    def get_burger_with_toppings( cls , data ):
+        query = "SELECT * FROM burgers LEFT JOIN add_ons ON add_ons.burger_id = burgers.id LEFT JOIN toppings ON add_ons.topping_id = toppings.id WHERE burgers.id = %(id)s;"
+        results = connectToMySQL('burgers').query_db( query , data )
+        # los resultados serán una lista de objetos topping (aderezo) con la hamburguesa adjunta a cada fila
+        burger = cls( results[0] )
+        for row_from_db in results:
+            # ahora parseamos los datos topping para crear instancias de aderezos y agregarlas a nuestra lista
+            topping_data = {
+                "id" : row_from_db["toppings.id"],
+                "topping_name" : row_from_db["topping_name"],
+                "created_at" : row_from_db["toppings.created_at"],
+                "updated_at" : row_from_db["toppings.updated_at"]
+            }
+            burger.toppings.append( topping.Topping( topping_data ) )
+            return burger
+
+
+    @staticmethod
+    def validate_burger(burger):
+        is_valid=True
+        if len(burger["name"])<3:
+            flash("Nombre debe tener al menos 3 caracteres")
+            is_valid=False
+        
+        if len(burger["bun"])<3:
+            flash("BUN debe tener al menos 3 caracteres")
+            is_valid=False
+        
+        if len(burger['meat']) < 3:
+            flash("Bun must be at least 3 characters.")
+            is_valid = False
+
+        if not burger["calories"] or int(burger["calories"]) < 200:
+            flash("Calories must be 200 or greater.")
+            is_valid = False
+
+        return is_valid

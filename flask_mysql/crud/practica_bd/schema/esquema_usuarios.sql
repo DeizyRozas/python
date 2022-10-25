@@ -5,27 +5,33 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema practica_bd
+-- Schema mydb
 -- -----------------------------------------------------
-DROP SCHEMA IF EXISTS `practica_bd` ;
+-- -----------------------------------------------------
+-- Schema esquema_usuarios
+-- -----------------------------------------------------
+DROP SCHEMA IF EXISTS `esquema_usuarios` ;
 
 -- -----------------------------------------------------
--- Schema practica_bd
+-- Schema esquema_usuarios
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `practica_bd` DEFAULT CHARACTER SET utf8 ;
-USE `practica_bd` ;
+CREATE SCHEMA IF NOT EXISTS `esquema_usuarios` ;
+USE `esquema_usuarios` ;
 
 -- -----------------------------------------------------
--- Table `practica_bd`.`usuarios`
+-- Table `esquema_usuarios`.`usuarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `practica_bd`.`usuarios` (
+CREATE TABLE IF NOT EXISTS `esquema_usuarios`.`usuarios` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NULL,
-  `especie` VARCHAR(45) NULL,
-  `creaated_at` DATETIME NULL DEFAULT NOW(),
-  `updated_at` DATETIME NULL DEFAULT NOW(),
+  `nombre` VARCHAR(45) COLLATE 'utf8mb3_bin' NULL DEFAULT NULL,
+  `apellido` VARCHAR(45) COLLATE 'utf8mb3_bin' NULL DEFAULT NULL,
+  `correo_electronico` VARCHAR(45) COLLATE 'utf8mb3_bin' NULL DEFAULT NULL,
+  `contraseña` VARCHAR(200) COLLATE 'utf8mb3_bin' NULL DEFAULT NULL,
+  `creado_en` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
+  `actualizado_en` DATETIME NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 13;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
